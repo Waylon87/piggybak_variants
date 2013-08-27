@@ -4,7 +4,7 @@ module PiggybakVariants
 
     acts_as_sellable
     belongs_to :product
-    has_and_belongs_to_many :option_values, join_table: 'option_values_variants'
+    has_and_belongs_to_many :option_values
 
     attr_accessible :option_value_ids, :piggybak_sellable_attributes
 
