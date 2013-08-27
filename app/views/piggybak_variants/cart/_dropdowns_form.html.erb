@@ -1,4 +1,4 @@
-<% if if @product.variants.any? -%>
+<% if @product.variants.any? -%>
   <%= javascript_include_tag "piggybak_variants/piggybak_variants" %>
 
 	<script type="text/javascript">
@@ -8,8 +8,7 @@
 	<div class="variant_options">
 		<% @product.options.each do |option| -%>
 		<div class="option" id="option_<%= option.id %>">
-		<h4><%= option.name %></h4>
-		<%= select_tag option.name, options_for_select(option.option_values.map{ |o| [o.name, o.id] }), include_blank: true %>
+		<%= select_tag option.name, options_for_select(option.option_values.map{ |o| [o.name, o.id] }), :prompt => option.name %>
 		<br />
 		</div>
 		<% end -%>
