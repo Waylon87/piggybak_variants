@@ -51,7 +51,7 @@ module PiggybakVariants
           edit do
             field :name
             field :position
-            field :product_id do
+            field :product do
               label "Product with Option"
               active true
             end

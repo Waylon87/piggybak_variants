@@ -7,7 +7,7 @@
   <div>Hello</div>
 
 	<div class="variant_options">
-		<% @product.option.each do |option| -%>
+		<% @product.options.each do |option| -%>
 		<div class="option" id="option_<%= option.id %>">
 		<h4><%= option.name %></h4>
 		<% option.option_values.ordered.each do |option_value| -%>
