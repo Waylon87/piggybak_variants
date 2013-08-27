@@ -1,10 +1,9 @@
-<% if object.reflections.keys.include?(:variants) -%>
+<% if @product.variants.any? -%>
 	<%= javascript_include_tag "piggybak_variants/piggybak_variants" %>
 
 	<script type="text/javascript">
 		var variant_map = <%= raw variant_map(@product) %>;
 	</script>
-  <div>Hello</div>
 
 	<div class="variant_options">
 		<% @product.options.each do |option| -%>
@@ -17,7 +16,7 @@
 		<br />
 		</div>
 		<% end -%>
-		<span class="all_selected">You must select an choice from each option.</span>
+		<span class="all_selected">You must select a choice from each option.</span>
 		<span class="unavailable">This combination is not available.</span>
 		<%= form_tag piggybak.cart_add_url do -%>
 		<input type="hidden" id="sellable_id" name="sellable_id" />

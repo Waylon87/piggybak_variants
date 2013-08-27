@@ -12,7 +12,6 @@ module Piggybak
         attr_accessible :variants_attributes, :options_attributes #, :allow_destroy => true
         validates_associated_bubbling :variants
         
-        #::PiggybakVariants::OptionConfiguration::VARIANT_CLASSES << self.to_s
       end      
     end
   end

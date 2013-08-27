@@ -1,4 +1,4 @@
-<% if object.reflections.keys.include?(:variants) -%>
+<% if if @product.variants.any? -%>
   <%= javascript_include_tag "piggybak_variants/piggybak_variants" %>
 
 	<script type="text/javascript">
