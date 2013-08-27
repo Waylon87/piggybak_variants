@@ -64,12 +64,12 @@ module PiggybakVariants
         config.model PiggybakVariants::Variant do
           object_label_method :admin_label
           show do
-            field :option do
+            field :option_values do
               visible true
             end
           end
           edit do
-            field :option do
+            field :option_values do
               partial "option_values"
               help "An option value for each option must be selected"
             end
