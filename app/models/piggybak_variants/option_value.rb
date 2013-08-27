@@ -2,8 +2,8 @@ module PiggybakVariants
   class OptionValue < ActiveRecord::Base
     self.table_name = "option_values"
 
-    attr_accessible :name, :position
-    has_and_belongs_to_many :variants
+    attr_accessible :name, :position, :option_id
+    has_and_belongs_to_many :variants, join_table: 'option_values_variants'
     belongs_to :option, :inverse_of => :option_values
 
     scope :ordered, :order => "position ASC"

@@ -14,7 +14,6 @@ module PiggybakVariants
     config.before_initialize do
       Piggybak.config do |config|
         config.manage_classes += ["::PiggybakVariants::Option",
-                                  "::PiggybakVariants::OptionConfiguration",
                                   "::PiggybakVariants::OptionValue"]
       end
     end
@@ -32,14 +31,6 @@ module PiggybakVariants
 
     initializer "piggybak.rails_admin_config" do |app|
       RailsAdmin.config do |config|
-        config.model PiggybakVariants::OptionConfiguration do
-          visible false
-          object_label_method :admin_label
-          label "Classes with Option"
-          edit do
-            field :klass
-          end
-        end
 
         config.model PiggybakVariants::OptionValue do
           visible false
@@ -56,15 +47,12 @@ module PiggybakVariants
             field :name
             field :position
             field :option_values
-            field :option_configurations do
-              label "Classes with Option"
-            end
           end
           edit do
             field :name
             field :position
-            field :option_configurations do
-              label "Classes with Option"
+            field :product_id do
+              label "Product with Option"
               active true
             end
             field :option_values do

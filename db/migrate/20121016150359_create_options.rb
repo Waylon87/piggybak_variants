@@ -3,6 +3,7 @@ class CreateOptions < ActiveRecord::Migration
     create_table :options, :force => true do |t|
       t.string :name
       t.integer :position
+      t.integer :product_id
       t.timestamps
     end
   end

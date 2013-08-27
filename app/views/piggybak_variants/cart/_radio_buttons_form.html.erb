@@ -2,11 +2,12 @@
 	<%= javascript_include_tag "piggybak_variants/piggybak_variants" %>
 
 	<script type="text/javascript">
-		var variant_map = <%= raw variant_map(object) %>;
+		var variant_map = <%= raw variant_map(@product) %>;
 	</script>
+  <div>Hello</div>
 
 	<div class="variant_options">
-		<% options_for_klass(object.class).each do |option| -%>
+		<% @product.option.each do |option| -%>
 		<div class="option" id="option_<%= option.id %>">
 		<h4><%= option.name %></h4>
 		<% option.option_values.ordered.each do |option_value| -%>
@@ -23,7 +24,7 @@
 		<div id="variant_price">Price: <span></span></div>
 		<label for="quantity">Quantity</label>
 		<%= text_field_tag :quantity, 1 %>
-		<%= submit_tag "Add to Cart", :id => "submit" %>
+		<%= submit_tag "Add to Cart", :id => "submit", class: "btn btn-cliques" %>
 		<% end -%>
 	</div>
 <% end -%>
