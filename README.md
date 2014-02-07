@@ -23,7 +23,9 @@ Migrate the DB `rake db:migrate`
 
 Add `acts_as_sellable_with_variants` to any model that should have variants (like your Product model). 
 
-Add `attr_accessable :piggybak_sellables_attributes, :piggybak_variants_attributes` to your sellable model. I didn't think you should have to add `:piggybak_sellable_attributes` to the sellable model since its included in the `acts_as_sellable_with_variants.rb` class in the gem. But its the only way I've found to not get random errors with the `<%= variants_cart_form(@instance) %>` form helper. 
+Add `attr_accessable :piggybak_variants_attributes` to your sellable model. 
+
+To avoid random errors from the `<%= variants_cart_form(@instance) %>` form helper  when in development env copy the piggyback_variants helper file to your main app directory. For some reason it doesnt get loaded up on every request in dev mode and throws an anoying error every few requests. 
 
 In the admin, define option configurations and option values for each option, then create variants for your sellable instances.
 
